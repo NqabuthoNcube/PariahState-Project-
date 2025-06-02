@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="reserve.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #8b4513;
+      color: white;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .restaurant-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px;
+      justify-content: center;
+    }
+    .table {
+      width: 100px;
+      height: 100px;
+      background-color: #c9b79c;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .table:hover {
+      transform: scale(1.1);
+    }
+    .table.selected {
+      background-color: #8b4513;
+      color: #fff;
+    }
+    .info-box {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .theme-toggle {
+      margin: 20px auto;
+      display: block;
+      padding: 10px 20px;
+      background-color: #8b4513;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    body.night-mode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+    body.night-mode .table {
+      background-color: #444;
+    }
+    body.night-mode .table.selected {
+      background-color: #bb8644;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pariah State ZW</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reserve.html">Reserve</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="content">
+    <h1>CHOOSE CONVENIENCE</h1>
+    <p>
+      Whether it’s an intimate dinner, a celebration with friends, or a business lunch — reserve your table at Pariah State ZW and dine in style.
+      We’re located in the heart of Avondale, Harare.
+    </p>
+	
+	<h2>Interactive Table Selection</h2>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Day/Night</button>
+    <div class="restaurant-layout">
+      <div class="table" onclick="selectTable(this, 'Table 1 - Window view')">Table 1</div>
+      <div class="table" onclick="selectTable(this, 'Table 2 - Near entrance')">Table 2</div>
+      <div class="table" onclick="selectTable(this, 'Table 3 - Cozy corner')">Table 3</div>
+      <div class="table" onclick="selectTable(this, 'Table 4 - Center')">Table 4</div>
+    </div>
+    <div class="info-box" id="infoBox">Click a table to see details.</div>
+  </div>
+
+  <script>
+    function selectTable(el, info) {
+      document.querySelectorAll('.table').forEach(t => t.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('infoBox').innerText = info;
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('night-mode');
+    }
+  </script>
+
+    <h2>🎉 Why Reserve?</h2>
+    <ul>
+      <li>Priority seating during peak hours</li>
+      <li>Tailored service for groups or special requests</li>
+      <li>Advance notice for allergies or special arrangements</li>
+    </ul>
+
+    <h2>⏰ Opening Hours</h2>
+    <p>
+      <strong>Monday to Sunday:</strong> 10:00 AM – 11:00 PM<br />
+      <strong>Brunch:</strong> Weekends 10:00 AM – 1:00 PM<br />
+      <strong>Live Music:</strong> Fridays from 7 PM
+    </p>
+
+    <h2>📍 Venue Info</h2>
+
+    <p>
+      Our Avondale venue features indoor & outdoor seating, rooftop views, and a cozy bar lounge. Great for birthdays, meet-ups,
+      romantic dinners, or even solo self-care time.
+    </p>
+
+    <h2>💬 Need Assistance?</h2>
+    <p>
+      Contact our reservations team on <strong>+263 774 823 115</strong> or email us at <a href="mailto:reservations@pariahstatezw.co.zw">reservations@pariahstatezw.com</a>.
+    </p>
+  </div>
+  
+
+
+    <!--section>
+      <img src="Media/Restaurant view.jpg" alt="Restaurant Interior" class="logo-img">
+    </section-->
+  </section>
+
+  <footer>
+    &copy; 2025 PARIAH STATE ZW
+  </footer>
+</body>
+</html>
