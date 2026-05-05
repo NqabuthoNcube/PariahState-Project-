@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Order online from Pariah State Zimbabwe - Avondale. Enjoy fast delivery of steaks, pizzas, and Zimbabwean dishes." />
+    <title>Order - Pariah State ZW</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #8b4513;
+      color: white;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+      .order-form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        font-family: 'Roboto', sans-serif;
+      }
+      .order-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .order-form input,
+      .order-form select,
+      .order-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .order-form button {
+        padding: 10px 20px;
+        background-color: #8b4513;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .success-message {
+        text-align: center;
+        color: green;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+  <header class="top-right">
+    <h1>Pariah State ZW</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reserve.html">Reserve</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  </header>
+  <div class="content">
+    <h1>Order for Delivery</h1>
+    <p>
+      Craving something special? Get your favorite <strong>Pariah State</strong> dishes delivered straight to your doorstep from our Avondale branch!
+      Whether you're in the mood for juicy steak bites, spicy grab inns, or a wood-fired pizza — we’ve got you covered.
+    </p>
+
+    <h2>🍔 Easy Online Ordering</h2>
+    <p>
+      Skip the queue! Our online ordering platform lets you select your meal, customize it to your taste, and pay on delivery or via EcoCash,
+      Swipe, or USD cash. It’s fast, secure, and convenient.
+    </p>
+    <section id="order">
+      <h2>Order for Delivery</h2>
+      <p>Place your order online and pay on delivery.</p>
+	   <div class="content">
+    <h1>Order for Delivery</h1>
+    <p>
+      Craving something special? Get your favorite dishes delivered to your doorstep with ease.
+    </p>
+    <form class="order-form" onsubmit="event.preventDefault(); document.getElementById('successMsg').style.display = 'block';">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="item">Menu Item</label>
+      <select id="item" name="item" required>
+        <option value="">Select a dish</option>
+        <option value="steak">Grilled Steak</option>
+        <option value="pizza">Woodfired Pizza</option>
+        <option value="sadza">Sadza & Beef</option>
+        <option value="salad">Garden Salad</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" min="1" required />
+
+      <label for="instructions">Special Instructions</label>
+      <textarea id="instructions" name="instructions" rows="3"></textarea>
+
+      <button type="submit">Place Order</button>
+    </form>
+    <div id="successMsg" class="success-message" style="display: none;">Thank you! Your order has been placed.</div>
+  </div>
+      <img src="Media/Dilivery.jpg" width="480" height="300" alt="Free Delivery">
+    </section>
+
+    
+    <h2>🚚 Delivery Info</h2>
+    <ul>
+      <li><strong>Delivery Time:</strong> 11:00 AM – 9:00 PM (Daily)</li>
+      <li><strong>Delivery Zones:</strong> Avondale, Greendale, CBD, Mt Pleasant, Borrowdale</li>
+      <li><strong>Minimum Order:</strong> $10</li>
+      <li><strong>Free Delivery:</strong> On orders above $40</li>
+    </ul>
+
+    <h2>🔥 Popular Dishes to Try</h2>
+    <ul>
+      <li>Grilled Steak Bites with Chimichurri Sauce</li>
+      <li>Signature Grab Inns with Secret House Sauce</li>
+      <li>Wood-Fired Pepperoni Pizza</li>
+      <li>Zimbabwean Sadza Bowls (available on request)</li>
+    </ul>
+
+    <h2>🎉 Promotions & Offers</h2>
+    <p>
+      Enjoy our <strong>Weekend Madness Deals</strong> – Buy any 2 pizzas and get 1 free on Saturdays! Check our
+      <a href="menu.html">menu page</a> for current specials.
+    </p>
+
+    <h2>💬 Need Help?</h2>
+    <p>
+      Contact our delivery hotline at <strong>+263 774 823 115</strong> or message us on WhatsApp for real-time order updates.
+      We’re here to serve you with love and flavor.
+    </p>
+  </div>
+   
+
+ 
+
+  <footer>
+    &copy; 2025 PARIAH STATE ZW
+  </footer>
+</body>
+</html>
