@@ -19,7 +19,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             isNight ? "translate-x-5" : "translate-x-0.5"
           }`}
         >
-          {isNight ? <Moon className="h-2.5 w-2.5" /> : <Sun className="h-2.5 w-2.5" />}
+          {isNight ? (
+            <Moon className="h-2.5 w-2.5" />
+          ) : (
+            <Sun className="h-2.5 w-2.5" />
+          )}
         </span>
       </span>
       <span className="hidden sm:inline">

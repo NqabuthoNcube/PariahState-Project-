@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 
 const NAV = [
@@ -17,8 +17,8 @@ export function SiteHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="hidden border-b border-foreground/10 bg-background/30 backdrop-blur md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs tracking-eyebrow uppercase text-foreground/70">
-          <span>Avondale, Harare · Zimbabwe</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs uppercase tracking-eyebrow text-foreground/70">
+          <span>Avondale, Harare - Zimbabwe</span>
           <span className="flex items-center gap-2">
             <Phone className="h-3 w-3 text-gold" /> +263 774 823 115
           </span>
@@ -31,20 +31,20 @@ export function SiteHeader() {
             Pariah <span className="text-gold">State</span>
           </span>
           <span className="hidden text-[10px] uppercase tracking-eyebrow text-foreground/60 sm:inline">
-            ZW · Est. 2015
+            ZW - Est. 2015
           </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map((n) => (
+          {NAV.map((item) => (
             <Link
-              key={n.to}
-              to={n.to}
+              key={item.to}
+              to={item.to}
               className="text-xs uppercase tracking-eyebrow text-foreground/80 transition-colors hover:text-gold"
               activeProps={{ className: "text-gold" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: item.to === "/" }}
             >
-              {n.label}
+              {item.label}
             </Link>
           ))}
         </nav>
@@ -58,9 +58,11 @@ export function SiteHeader() {
             Find a Table
           </Link>
           <button
+            type="button"
             className="md:hidden"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => setOpen((current) => !current)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -70,16 +72,16 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-foreground/10 bg-background/95 backdrop-blur md:hidden">
           <nav className="flex flex-col px-6 py-4">
-            {NAV.map((n) => (
+            {NAV.map((item) => (
               <Link
-                key={n.to}
-                to={n.to}
+                key={item.to}
+                to={item.to}
                 onClick={() => setOpen(false)}
                 className="border-b border-foreground/10 py-3 text-sm uppercase tracking-eyebrow text-foreground/80 hover:text-gold"
                 activeProps={{ className: "text-gold" }}
-                activeOptions={{ exact: n.to === "/" }}
+                activeOptions={{ exact: item.to === "/" }}
               >
-                {n.label}
+                {item.label}
               </Link>
             ))}
           </nav>
