@@ -20,13 +20,13 @@ export function PageHero({
       />
       <div className="absolute inset-0 hero-overlay-dark" />
       <SiteHeader />
-      <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
+      <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 pt-20 text-center text-foreground">
         <p className="text-xs uppercase tracking-eyebrow text-gold">
           {eyebrow}
         </p>
         <h1 className="mt-4 font-display text-5xl md:text-6xl">{title}</h1>
         {subtitle && (
-          <p className="mt-5 max-w-xl text-sm uppercase tracking-[0.25em] text-white/80">
+          <p className="mt-5 max-w-xl text-sm uppercase tracking-[0.25em] text-foreground/80">
             {subtitle}
           </p>
         )}

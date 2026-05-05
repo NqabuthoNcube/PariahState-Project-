@@ -91,7 +91,7 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay-dark" />
-        <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center text-foreground">
           <p className="mb-6 text-xs uppercase tracking-eyebrow text-gold">
             Avondale - Harare - Est. 2015
           </p>
@@ -107,7 +107,7 @@ function Home() {
             <Star className="mx-3 h-3 w-3 fill-gold text-gold" />
             <span className="h-px w-16 bg-gold/60" />
           </div>
-          <p className="max-w-xl text-sm uppercase tracking-[0.3em] text-white/80">
+          <p className="max-w-xl text-sm uppercase tracking-[0.3em] text-foreground/80">
             The finest prime steak. Exquisite wines. Genuine service.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -239,14 +239,14 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay-dark" />
-        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 text-center text-foreground">
           <p className="text-xs uppercase tracking-eyebrow text-gold">
             Live Music - Fridays
           </p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">
             Candlelit Nights, Open Flame
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/80">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-foreground/80">
             Step into a space where treehouse architecture, warm timber tones
             and glowing lanterns create a magical, forested ambience right in
             the city.
@@ -307,11 +307,11 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay-dark" />
-        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center text-white">
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center text-foreground">
           <h2 className="font-display text-4xl md:text-5xl">
             Reserve Your Table Tonight
           </h2>
-          <p className="mt-4 text-sm uppercase tracking-[0.25em] text-white/80">
+          <p className="mt-4 text-sm uppercase tracking-[0.25em] text-foreground/80">
             Avondale, Harare - Open daily 8am - Late
           </p>
           <Link
