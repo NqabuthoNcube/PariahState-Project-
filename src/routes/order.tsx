@@ -37,7 +37,7 @@ function OrderPage() {
             <p className="text-xs uppercase tracking-eyebrow text-gold">
               Place Your Order
             </p>
-            <h2 className="mt-3 font-display text-3xl">
+            <h2 className="mt-3 font-display text-3xl text-foreground">
               Quick &amp; Easy Delivery
             </h2>
             <p className="mt-4 text-sm text-muted-foreground">
@@ -120,7 +120,7 @@ function OrderPage() {
               <p className="text-xs uppercase tracking-eyebrow text-gold">
                 Weekend Madness
               </p>
-              <p className="mt-3 font-display text-2xl">
+              <p className="mt-3 font-display text-2xl text-foreground">
                 Buy 2 Pizzas, Get 1 Free
               </p>
               <p className="mt-2 text-sm text-muted-foreground">

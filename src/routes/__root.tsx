@@ -5,7 +5,6 @@ import {
   Scripts,
   createRootRoute,
 } from "@tanstack/react-router";
-import { ThemeProvider } from "@/components/theme-provider";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -75,22 +74,14 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
+    <>
+      <HeadContent />
+      <Scripts />
+      {children}
+    </>
   );
 }
 
 function RootComponent() {
-  return (
-    <ThemeProvider>
-      <Outlet />
-    </ThemeProvider>
-  );
+  return <Outlet />;
 }

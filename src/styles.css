@@ -2,8 +2,6 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -36,68 +34,42 @@
   --font-sans: "Inter", "Roboto", system-ui, sans-serif;
 }
 
-/* Day Time Dining (light) — warm cream & cocoa */
+/* White house theme */
 :root {
   --radius: 0.5rem;
 
-  --background: oklch(0.975 0.012 80);     /* warm ivory */
-  --foreground: oklch(0.18 0.025 40);      /* deep cocoa */
-  --surface: oklch(0.945 0.018 75);        /* parchment */
+  --background: #535252;
+  --foreground: oklch(100% 0.00011 271.152);
+  --foreground-muted: oklch(0.44 0.035 35);
+  --foreground-emphasis: oklch(0.15 0.035 35);
+  --foreground-emphasis-muted: oklch(0.2 0.04 35);
+  --foreground-outline:var(--accent-foreground);
+  --text-outline: oklch(26.862% 0.00003 271.152);
+  --surface: oklch(0.975 0.006 80);
 
-  --card: oklch(0.99 0.008 80);
-  --card-foreground: oklch(0.18 0.025 40);
-  --popover: oklch(0.99 0.008 80);
-  --popover-foreground: oklch(0.18 0.025 40);
+  --card: #9e9e9e;
+  --card-foreground: oklch(0.15 0.035 35);
+  --popover: #ffffff;
+  --popover-foreground: oklch(0.15 0.035 35);
 
-  --primary: oklch(0.32 0.07 40);          /* roasted coffee */
-  --primary-foreground: oklch(0.98 0.01 80);
-  --secondary: oklch(0.92 0.02 75);
-  --secondary-foreground: oklch(0.22 0.04 40);
-  --muted: oklch(0.93 0.015 75);
-  --muted-foreground: oklch(0.45 0.03 50);
-  --accent: oklch(0.88 0.04 75);
-  --accent-foreground: oklch(0.22 0.04 40);
+  --primary: oklch(98.866% 0.00546 30.034);
+  --primary-foreground: #fff;
+  --secondary: oklch(0.955 0.007 80);
+  --secondary-foreground: oklch(0.2 0.04 35);
+  --muted: oklch(0.955 0.007 80);
+  --muted-foreground: oklch(0.44 0.035 35);
+  --accent: oklch(0.935 0.025 76);
+  --accent-foreground: oklch(0.18 0.04 35);
 
-  --gold: oklch(0.62 0.13 65);             /* warm copper */
-  --gold-foreground: oklch(0.99 0.01 80);
+  --gold: oklch(0.62 0.13 65);
+  --gold-foreground: #fff;
 
   --destructive: oklch(0.55 0.22 28);
-  --destructive-foreground: oklch(0.99 0.01 80);
+  --destructive-foreground: #fff;
 
   --border: oklch(0.86 0.02 70);
   --input: oklch(0.88 0.02 70);
   --ring: oklch(0.62 0.13 65);
-}
-
-/* Night Time Dining (dark) — candlelit charcoal & amber */
-.dark {
-  --background: oklch(0.14 0.012 60);      /* charcoal */
-  --foreground: oklch(0.95 0.015 80);      /* warm cream */
-  --surface: oklch(0.18 0.015 60);
-
-  --card: oklch(0.18 0.015 60);
-  --card-foreground: oklch(0.95 0.015 80);
-  --popover: oklch(0.18 0.015 60);
-  --popover-foreground: oklch(0.95 0.015 80);
-
-  --primary: oklch(0.92 0.02 80);
-  --primary-foreground: oklch(0.16 0.015 60);
-  --secondary: oklch(0.24 0.02 60);
-  --secondary-foreground: oklch(0.95 0.015 80);
-  --muted: oklch(0.22 0.018 60);
-  --muted-foreground: oklch(0.7 0.025 75);
-  --accent: oklch(0.28 0.025 60);
-  --accent-foreground: oklch(0.95 0.015 80);
-
-  --gold: oklch(0.78 0.14 75);             /* candlelit amber */
-  --gold-foreground: oklch(0.14 0.012 60);
-
-  --destructive: oklch(0.65 0.2 25);
-  --destructive-foreground: oklch(0.98 0.01 80);
-
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.78 0.14 75);
 }
 
 @layer base {

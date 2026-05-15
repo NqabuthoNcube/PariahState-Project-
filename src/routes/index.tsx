@@ -133,7 +133,7 @@ function Home() {
             <p className="text-xs uppercase tracking-eyebrow text-gold">
               Our Heritage
             </p>
-            <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl">
+            <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl text-foreground">
               A Treehouse <br /> Steakhouse in Harare
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -167,7 +167,7 @@ function Home() {
             <p className="text-xs uppercase tracking-eyebrow text-gold">
               What We Serve
             </p>
-            <h2 className="mt-3 font-display text-4xl">
+            <h2 className="mt-3 font-display text-4xl text-foreground">
               Crafted with Fire & Care
             </h2>
           </div>
@@ -178,7 +178,7 @@ function Home() {
                 className="border border-foreground/10 bg-card p-10 text-center transition-colors hover:border-gold"
               >
                 <Icon className="mx-auto h-7 w-7 text-gold" />
-                <h3 className="mt-5 font-display text-2xl">{title}</h3>
+                <h3 className="mt-5 font-display text-2xl text-foreground">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {body}
                 </p>
@@ -195,7 +195,7 @@ function Home() {
               <p className="text-xs uppercase tracking-eyebrow text-gold">
                 Signature Dishes
               </p>
-              <h2 className="mt-3 font-display text-4xl">House Favourites</h2>
+              <h2 className="mt-3 font-display text-4xl text-foreground">House Favourites</h2>
             </div>
             <Link
               to="/menu"
@@ -217,7 +217,7 @@ function Home() {
                 </div>
                 <div className="flex items-start justify-between gap-4 p-6">
                   <div>
-                    <h3 className="font-display text-xl">{dish.name}</h3>
+                    <h3 className="font-display text-xl text-foreground">{dish.name}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {dish.desc}
                     </p>
@@ -260,7 +260,7 @@ function Home() {
             <p className="text-xs uppercase tracking-eyebrow text-gold">
               Guest Stories
             </p>
-            <h2 className="mt-3 font-display text-4xl">Loved by Harare</h2>
+            <h2 className="mt-3 font-display text-4xl text-foreground">Loved by Harare</h2>
           </div>
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {REVIEWS.map((review) => (
@@ -273,7 +273,7 @@ function Home() {
                     <Star key={index} className="h-3.5 w-3.5 fill-gold" />
                   ))}
                 </div>
-                <blockquote className="mt-5 font-display text-xl leading-snug">
+                <blockquote className="mt-5 font-display text-xl leading-snug text-foreground">
                   "{review.quote}"
                 </blockquote>
                 <figcaption className="mt-6 text-xs uppercase tracking-eyebrow text-muted-foreground">
@@ -285,7 +285,7 @@ function Home() {
         </div>
 
         <div className="mx-auto mt-20 max-w-6xl px-6">
-          <h2 className="font-display text-3xl">Pariah State Location</h2>
+          <h2 className="font-display text-3xl text-foreground">Pariah State Location</h2>
           <div className="mt-6 aspect-[4/3] w-full overflow-hidden border border-foreground/10 bg-card sm:aspect-[16/9]">
             <iframe
               title="Pariah State Avondale map"
@@ -316,7 +316,7 @@ function Home() {
           </p>
           <Link
             to="/reserve"
-            className="mt-10 inline-block bg-gold px-10 py-3 text-xs uppercase tracking-eyebrow text-gold-foreground hover:opacity-90"
+            className="mt-10 inline-block border border-white px-10 py-3 text-xs uppercase tracking-eyebrow text-white transition-colors hover:bg-white hover:text-foreground"
           >
             Find a Table
           </Link>

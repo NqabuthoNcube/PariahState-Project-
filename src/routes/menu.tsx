@@ -137,7 +137,7 @@ function MenuPage() {
                 <p className="text-xs uppercase tracking-eyebrow text-gold">
                   {section.title}
                 </p>
-                <h2 className="mt-3 font-display text-4xl">{section.title}</h2>
+                <h2 className="mt-3 font-display text-4xl text-foreground">{section.title}</h2>
                 <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
                   {section.subtitle}
                 </p>
@@ -158,7 +158,7 @@ function MenuPage() {
                     )}
                     <div className="flex-1">
                       <div className="flex items-baseline justify-between gap-3">
-                        <h3 className="font-display text-xl">{item.name}</h3>
+                        <h3 className="font-display text-xl text-foreground">{item.name}</h3>
                         <span className="font-display text-lg text-gold">
                           {item.price}
                         </span>

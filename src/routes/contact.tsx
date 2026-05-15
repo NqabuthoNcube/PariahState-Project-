@@ -37,7 +37,7 @@ function ContactPage() {
             <p className="text-xs uppercase tracking-eyebrow text-gold">
               Visit the Restaurant
             </p>
-            <h2 className="mt-3 font-display text-3xl">Avondale, Harare</h2>
+            <h2 className="mt-3 font-display text-3xl text-foreground">Avondale, Harare</h2>
             <ul className="mt-8 space-y-5 text-sm">
               <Info icon={MapPin} title="Address">
                 King George Rd, Avondale, Harare, Zimbabwe

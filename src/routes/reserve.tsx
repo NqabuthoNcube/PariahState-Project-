@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Moon, Sun } from "lucide-react";
+import { Check } from "lucide-react";
 import { useState } from "react";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
-import { useTheme } from "@/components/theme-provider";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import insideImg from "@/assets/pariah/inside.jpg";
 
 export const Route = createFileRoute("/reserve")({
@@ -13,12 +19,39 @@ export const Route = createFileRoute("/reserve")({
       {
         name: "description",
         content:
-          "Reserve your table at Pariah State ZW Avondale. Choose Day Time Dining or Night Time Dining.",
+          "Reserve your table at Pariah State ZW Avondale. Choose your dining time and preferred table.",
       },
     ],
   }),
   component: ReservePage,
 });
+
+const TIME_OF_DAY = [
+  {
+    value: "brunch-lunch",
+    label: "Brunch & Lunch",
+    details: "10:00 AM - 4:00 PM",
+  },
+  {
+    value: "dinner-drinks",
+    label: "Dinner & Drinks",
+    details: "5:00 PM - Late",
+  },
+];
+
+const TIME_SLOTS = [
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 PM",
+  "1:00 PM",
+  "2:00 PM",
+  "3:00 PM",
+  "5:00 PM",
+  "6:00 PM",
+  "7:00 PM",
+  "8:00 PM",
+  "9:00 PM",
+];
 
 const TABLES = [
   { id: 1, label: "Window view", seats: 2 },
@@ -30,16 +63,20 @@ const TABLES = [
 ];
 
 function ReservePage() {
-  const { theme, setTheme } = useTheme();
-  const [selected, setSelected] = useState<number | null>(null);
+  const [timeOfDay, setTimeOfDay] = useState("brunch-lunch");
+  const [timeSlot, setTimeSlot] = useState("");
+  const [selectedTable, setSelectedTable] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const table = TABLES.find((item) => String(item.id) === selectedTable);
+  const experience = TIME_OF_DAY.find((item) => item.value === timeOfDay);
+  const canSubmit = Boolean(timeSlot && selectedTable);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PageHero
         eyebrow="Reservations"
-        title="Choose Your Moment"
-        subtitle="Day Time Dining - Night Time Dining"
+        title="Book Your Table"
+        subtitle="Choose your dining time and preferred table"
         image={insideImg}
       />
 
@@ -47,58 +84,64 @@ function ReservePage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <p className="text-xs uppercase tracking-eyebrow text-gold">
-              Select Your Experience
+              Reservation Details
             </p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl text-foreground">
               When will you join us?
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-              Switching the experience will gently transform the entire site to
-              match the mood: sunlit cream by day, candlelit charcoal by night.
+              Select your preferred part of the day, arrival time, and table
+              before sending the request.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            <button
-              type="button"
-              onClick={() => setTheme("day")}
-              aria-pressed={theme === "day"}
-              className={`group flex flex-col items-start gap-3 border p-8 text-left transition-all ${
-                theme === "day"
-                  ? "border-gold bg-gold/5"
-                  : "border-foreground/15 hover:border-gold/60"
-              }`}
-            >
-              <Sun className="h-6 w-6 text-gold" />
-              <span className="text-xs uppercase tracking-eyebrow text-gold">
-                Day Time Dining
-              </span>
-              <span className="font-display text-2xl">Brunch &amp; Lunch</span>
-              <span className="text-sm text-muted-foreground">
-                10am - 4pm - Sunlit patio, brunch plates and cold-press
-                cocktails.
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setTheme("night")}
-              aria-pressed={theme === "night"}
-              className={`group flex flex-col items-start gap-3 border p-8 text-left transition-all ${
-                theme === "night"
-                  ? "border-gold bg-gold/5"
-                  : "border-foreground/15 hover:border-gold/60"
-              }`}
-            >
-              <Moon className="h-6 w-6 text-gold" />
-              <span className="text-xs uppercase tracking-eyebrow text-gold">
-                Night Time Dining
-              </span>
-              <span className="font-display text-2xl">Dinner &amp; Drinks</span>
-              <span className="text-sm text-muted-foreground">
-                5pm - Late - Candlelight, flame-grilled mains and live music
-                Fridays.
-              </span>
-            </button>
+          <div className="mt-10 grid gap-5 border border-foreground/10 bg-card p-8 md:grid-cols-3">
+            <Field label="Time of Day">
+              <Select value={timeOfDay} onValueChange={setTimeOfDay}>
+                <SelectTrigger className="reservation-select">
+                  <SelectValue placeholder="Select time of day" />
+                </SelectTrigger>
+                <SelectContent>
+                  {TIME_OF_DAY.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label} - {item.details}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
+            <Field label="Arrival Time">
+              <Select value={timeSlot} onValueChange={setTimeSlot} required>
+                <SelectTrigger className="reservation-select">
+                  <SelectValue placeholder="Select arrival time" />
+                </SelectTrigger>
+                <SelectContent>
+                  {TIME_SLOTS.map((slot) => (
+                    <SelectItem key={slot} value={slot}>
+                      {slot}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
+            <Field label="Preferred Table">
+              <Select
+                value={selectedTable}
+                onValueChange={setSelectedTable}
+                required
+              >
+                <SelectTrigger className="reservation-select">
+                  <SelectValue placeholder="Select table" />
+                </SelectTrigger>
+                <SelectContent>
+                  {TABLES.map((item) => (
+                    <SelectItem key={item.id} value={String(item.id)}>
+                      Table {item.id} - {item.label} ({item.seats} seats)
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
           </div>
 
           <div className="mt-20">
@@ -106,16 +149,16 @@ function ReservePage() {
               <p className="text-xs uppercase tracking-eyebrow text-gold">
                 Floor Plan
               </p>
-              <h3 className="mt-3 font-display text-3xl">Pick Your Table</h3>
+              <h3 className="mt-3 font-display text-3xl text-foreground">Pick Your Table</h3>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
               {TABLES.map((table) => {
-                const active = selected === table.id;
+                const active = selectedTable === String(table.id);
                 return (
                   <button
                     key={table.id}
                     type="button"
-                    onClick={() => setSelected(table.id)}
+                    onClick={() => setSelectedTable(String(table.id))}
                     aria-pressed={active}
                     className={`flex aspect-square flex-col items-center justify-center border text-center transition-all ${
                       active
@@ -131,12 +174,11 @@ function ReservePage() {
                 );
               })}
             </div>
-            {selected && (
+            {table && (
               <p className="mt-6 text-center text-sm text-muted-foreground">
                 Selected:{" "}
                 <span className="text-gold">
-                  Table {selected} -{" "}
-                  {TABLES.find((table) => table.id === selected)?.label}
+                  Table {table.id} - {table.label}
                 </span>
               </p>
             )}
@@ -145,6 +187,7 @@ function ReservePage() {
           <form
             onSubmit={(event) => {
               event.preventDefault();
+              if (!canSubmit) return;
               setSubmitted(true);
             }}
             className="mt-16 grid gap-5 border border-foreground/10 bg-card p-8 md:grid-cols-2"
@@ -159,7 +202,13 @@ function ReservePage() {
               <input type="date" required className="form-input" />
             </Field>
             <Field label="Time">
-              <input type="time" required className="form-input" />
+              <input
+                value={timeSlot}
+                readOnly
+                required
+                className="form-input"
+                placeholder="Select arrival time above"
+              />
             </Field>
             <Field label="Guests">
               <input
@@ -173,10 +222,21 @@ function ReservePage() {
             <Field label="Experience">
               <input
                 value={
-                  theme === "day" ? "Day Time Dining" : "Night Time Dining"
+                  experience
+                    ? `${experience.label} (${experience.details})`
+                    : ""
                 }
                 readOnly
                 className="form-input"
+              />
+            </Field>
+            <Field label="Table">
+              <input
+                value={table ? `Table ${table.id} - ${table.label}` : ""}
+                readOnly
+                required
+                className="form-input"
+                placeholder="Select table above"
               />
             </Field>
             <div className="md:col-span-2">
@@ -195,7 +255,8 @@ function ReservePage() {
               )}
               <button
                 type="submit"
-                className="bg-gold px-8 py-3 text-xs uppercase tracking-eyebrow text-gold-foreground hover:opacity-90"
+                disabled={!canSubmit}
+                className="bg-gold px-8 py-3 text-xs uppercase tracking-eyebrow text-gold-foreground hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-45"
               >
                 Confirm Reservation
               </button>
@@ -217,6 +278,17 @@ function ReservePage() {
           transition: border-color 200ms;
         }
         .form-input:focus { border-color: var(--gold); }
+        .reservation-select {
+          height: 44px;
+          border-radius: 0;
+          border-color: var(--border);
+          background: transparent;
+          box-shadow: none;
+        }
+        .reservation-select:focus {
+          border-color: var(--gold);
+          box-shadow: 0 0 0 1px var(--gold);
+        }
       `}</style>
 
       <SiteFooter />

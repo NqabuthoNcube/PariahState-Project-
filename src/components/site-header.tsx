@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
-import { ThemeToggle } from "./theme-toggle";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -50,10 +49,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           <Link
             to="/reserve"
-            className="hidden rounded-full border border-gold px-5 py-2 text-xs uppercase tracking-eyebrow text-gold transition-colors hover:bg-gold hover:text-gold-foreground md:inline-block"
+            className="hidden rounded-full border border-white px-5 py-2 text-xs uppercase tracking-eyebrow text-white transition-colors hover:bg-white hover:text-foreground md:inline-block"
           >
             Find a Table
           </Link>
